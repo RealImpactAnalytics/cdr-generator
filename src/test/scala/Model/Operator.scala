@@ -1,8 +1,7 @@
 package model
 
-class Operator (
+abstract class Operator(
 	val id: Long,
 	val name: String,
 	val share: Float
-	)extends Serializable
-
+	)

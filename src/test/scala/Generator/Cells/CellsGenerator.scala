@@ -12,7 +12,7 @@ abstract class CellsGenerator(){
 	  * Generate an array of cells
 		* @return an array of cells
 		*/
-	def generate(operators: Array[Operator]) : Array[Cell]
+	def generate() : Array[Cell]
 }
 
 /**
@@ -27,6 +27,7 @@ abstract class CellsGenerator(){
 	*/
 class BasicCellsGenerator(
 	val nCells: Int,
+	val operators: Array[Operator],
 	val latMin: Double = 0,
 	val latMax: Double = 1,
 	val lonMin: Double = 0,
@@ -34,9 +35,9 @@ class BasicCellsGenerator(
 ) extends CellsGenerator {
 	private val rand = new Random( (new DateTime()).getMillisOfDay() )
 
-	override def generate(operators: Array[Operator]) : Array[Cell] = {
+	override def generate() : Array[Cell] = {
 		val cellsId = 1 to nCells
-		cellsId.map{ id => new Cell(id, randomLocation(), operators(0), Array()) }.toArray
+		cellsId.map{ id => new Cell(id, randomLocation(), Array()) }.toArray
 	}
 
 	private def randomLocation() = new Location(

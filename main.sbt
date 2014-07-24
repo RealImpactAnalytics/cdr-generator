@@ -1,4 +1,4 @@
-name := "Results test"
+name := "CDR-Generator"
 
 version := "1.0"
 

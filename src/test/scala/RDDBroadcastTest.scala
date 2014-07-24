@@ -1,7 +1,7 @@
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkContext._
 import org.apache.spark.SparkConf
-import spark.Spark.sc
+import Spark.sc
 
 class BroadCastTest(val rdd: org.apache.spark.rdd.RDD[String])
 

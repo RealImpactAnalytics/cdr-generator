@@ -1,0 +1,189 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+generator.cells	src/main/scala/Generator/Cells/CellsGenerator.scala	/^package generator.cells$/;"	p
+generator.operators	src/main/scala/Generator/Operators/OperatorsGenerator.scala	/^package generator.operators$/;"	p
+generator.users	src/main/scala/Generator/Users/UsersGenerator.scala	/^package generator.users$/;"	p
+model	src/main/scala/Model/CDR.scala	/^package model$/;"	p
+model	src/main/scala/Model/Cell.scala	/^package model$/;"	p
+model	src/main/scala/Model/Operator.scala	/^package model$/;"	p
+model	src/main/scala/Model/User.scala	/^package model$/;"	p
+simulator	src/main/scala/Simulator/Simulator.scala	/^package simulator$/;"	p
+spark	src/main/scala/Spark.scala	/^package spark$/;"	p
+generator.cells	src/test/scala/Generator/Cells/CellsGenerator.scala	/^package generator.cells$/;"	p
+generator.operators	src/test/scala/Generator/Operators/OperatorsGenerator.scala	/^package generator.operators$/;"	p
+generator.users	src/test/scala/Generator/Users/UsersGenerator.scala	/^package generator.users$/;"	p
+model	src/test/scala/Model/CDR.scala	/^package model$/;"	p
+model	src/test/scala/Model/Cell.scala	/^package model$/;"	p
+model	src/test/scala/Model/Operator.scala	/^package model$/;"	p
+model	src/test/scala/Model/User.scala	/^package model$/;"	p
+Simulator	src/test/scala/Simulator/Simulator.scala	/^package Simulator$/;"	p
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/Actor.scala	/^package akka.actor$/;"	p
+Receive	target/sbt-ctags-dep-srcs/akka/actor/Actor.scala	/^  type Receive = PartialFunction[Any, Unit]$/;"	T
+Receive	target/sbt-ctags-dep-srcs/akka/actor/Actor.scala	/^  type Receive = Actor.Receive$/;"	T
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/ActorCell.scala	/^package akka.actor$/;"	p
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/ActorDSL.scala	/^package akka.actor$/;"	p
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/ActorPath.scala	/^package akka.actor$/;"	p
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/ActorRef.scala	/^package akka.actor$/;"	p
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/ActorRefProvider.scala	/^package akka.actor$/;"	p
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/ActorSelection.scala	/^package akka.actor$/;"	p
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/ActorSystem.scala	/^package akka.actor$/;"	p
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/Address.scala	/^package akka.actor$/;"	p
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/Deployer.scala	/^package akka.actor$/;"	p
+akka.actor.dsl	target/sbt-ctags-dep-srcs/akka/actor/dsl/Creators.scala	/^package akka.actor.dsl$/;"	p
+akka.actor.dsl	target/sbt-ctags-dep-srcs/akka/actor/dsl/Inbox.scala	/^package akka.actor.dsl$/;"	p
+akka.actor.dungeon	target/sbt-ctags-dep-srcs/akka/actor/dungeon/Children.scala	/^package akka.actor.dungeon$/;"	p
+akka.actor.dungeon	target/sbt-ctags-dep-srcs/akka/actor/dungeon/ChildrenContainer.scala	/^package akka.actor.dungeon$/;"	p
+akka.actor.dungeon	target/sbt-ctags-dep-srcs/akka/actor/dungeon/DeathWatch.scala	/^package akka.actor.dungeon$/;"	p
+akka.actor.dungeon	target/sbt-ctags-dep-srcs/akka/actor/dungeon/Dispatch.scala	/^package akka.actor.dungeon$/;"	p
+akka.actor.dungeon	target/sbt-ctags-dep-srcs/akka/actor/dungeon/FaultHandling.scala	/^package akka.actor.dungeon$/;"	p
+akka.actor.dungeon	target/sbt-ctags-dep-srcs/akka/actor/dungeon/ReceiveTimeout.scala	/^package akka.actor.dungeon$/;"	p
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/DynamicAccess.scala	/^package akka.actor$/;"	p
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/Extension.scala	/^package akka.actor$/;"	p
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/FaultHandling.scala	/^package akka.actor$/;"	p
+Decider	target/sbt-ctags-dep-srcs/akka/actor/FaultHandling.scala	/^  type Decider = PartialFunction[Throwable, Directive]$/;"	T
+JDecider	target/sbt-ctags-dep-srcs/akka/actor/FaultHandling.scala	/^  type JDecider = akka.japi.Function[Throwable, Directive]$/;"	T
+CauseDirective	target/sbt-ctags-dep-srcs/akka/actor/FaultHandling.scala	/^  type CauseDirective = (Class[_ <: Throwable], Directive)$/;"	T
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/FSM.scala	/^package akka.actor$/;"	p
+State	target/sbt-ctags-dep-srcs/akka/actor/FSM.scala	/^  type State = FSM.State[S, D]$/;"	T
+StateFunction	target/sbt-ctags-dep-srcs/akka/actor/FSM.scala	/^  type StateFunction = scala.PartialFunction[Event, State]$/;"	T
+Timeout	target/sbt-ctags-dep-srcs/akka/actor/FSM.scala	/^  type Timeout = Option[FiniteDuration]$/;"	T
+TransitionHandler	target/sbt-ctags-dep-srcs/akka/actor/FSM.scala	/^  type TransitionHandler = PartialFunction[(S, S), Unit]$/;"	T
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/IO.scala	/^package akka.actor$/;"	p
+akka	target/sbt-ctags-dep-srcs/akka/actor/package.scala	/^package akka$/;"	p
+object	target/sbt-ctags-dep-srcs/akka/actor/package.scala	/^package object actor {$/;"	p
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/Props.scala	/^package akka.actor$/;"	p
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/RepointableActorRef.scala	/^package akka.actor$/;"	p
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/Scheduler.scala	/^package akka.actor$/;"	p
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/Stash.scala	/^package akka.actor$/;"	p
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/TypedActor.scala	/^package akka.actor$/;"	p
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/UntypedActor.scala	/^package akka.actor$/;"	p
+akka.actor	target/sbt-ctags-dep-srcs/akka/actor/UntypedActorWithStash.scala	/^package akka.actor$/;"	p
+akka	target/sbt-ctags-dep-srcs/akka/AkkaException.scala	/^package akka$/;"	p
+akka.dispatch	target/sbt-ctags-dep-srcs/akka/dispatch/AbstractDispatcher.scala	/^package akka.dispatch$/;"	p
+akka.dispatch	target/sbt-ctags-dep-srcs/akka/dispatch/BalancingDispatcher.scala	/^package akka.dispatch$/;"	p
+akka.dispatch	target/sbt-ctags-dep-srcs/akka/dispatch/BatchingExecutor.scala	/^package akka.dispatch$/;"	p
+akka.dispatch	target/sbt-ctags-dep-srcs/akka/dispatch/Dispatcher.scala	/^package akka.dispatch$/;"	p
+akka.dispatch	target/sbt-ctags-dep-srcs/akka/dispatch/Dispatchers.scala	/^package akka.dispatch$/;"	p
+akka.dispatch	target/sbt-ctags-dep-srcs/akka/dispatch/Future.scala	/^package akka.dispatch$/;"	p
+akka.dispatch	target/sbt-ctags-dep-srcs/akka/dispatch/Mailbox.scala	/^package akka.dispatch$/;"	p
+Status	target/sbt-ctags-dep-srcs/akka/dispatch/Mailbox.scala	/^  type Status = Int$/;"	T
+akka.dispatch	target/sbt-ctags-dep-srcs/akka/dispatch/Mailboxes.scala	/^package akka.dispatch$/;"	p
+akka.dispatch	target/sbt-ctags-dep-srcs/akka/dispatch/PinnedDispatcher.scala	/^package akka.dispatch$/;"	p
+akka.dispatch.sysmsg	target/sbt-ctags-dep-srcs/akka/dispatch/sysmsg/SystemMessage.scala	/^package akka.dispatch.sysmsg$/;"	p
+akka.dispatch	target/sbt-ctags-dep-srcs/akka/dispatch/ThreadPoolBuilder.scala	/^package akka.dispatch$/;"	p
+QueueFactory	target/sbt-ctags-dep-srcs/akka/dispatch/ThreadPoolBuilder.scala	/^  type QueueFactory = () ⇒ BlockingQueue[Runnable]$/;"	T
+akka.event	target/sbt-ctags-dep-srcs/akka/event/DeadLetterListener.scala	/^package akka.event$/;"	p
+akka.event	target/sbt-ctags-dep-srcs/akka/event/EventBus.scala	/^package akka.event$/;"	p
+Event	target/sbt-ctags-dep-srcs/akka/event/EventBus.scala	/^  type Event$/;"	T
+Classifier	target/sbt-ctags-dep-srcs/akka/event/EventBus.scala	/^  type Classifier$/;"	T
+Subscriber	target/sbt-ctags-dep-srcs/akka/event/EventBus.scala	/^  type Subscriber$/;"	T
+Subscriber	target/sbt-ctags-dep-srcs/akka/event/EventBus.scala	/^  type Subscriber = ActorRef$/;"	T
+Classifier	target/sbt-ctags-dep-srcs/akka/event/EventBus.scala	/^  type Classifier = ActorRef$/;"	T
+Classifier	target/sbt-ctags-dep-srcs/akka/event/EventBus.scala	/^  type Classifier = Event ⇒ Boolean$/;"	T
+akka.event	target/sbt-ctags-dep-srcs/akka/event/EventStream.scala	/^package akka.event$/;"	p
+Event	target/sbt-ctags-dep-srcs/akka/event/EventStream.scala	/^  type Event = AnyRef$/;"	T
+Classifier	target/sbt-ctags-dep-srcs/akka/event/EventStream.scala	/^  type Classifier = Class[_]$/;"	T
+akka.event.japi	target/sbt-ctags-dep-srcs/akka/event/japi/EventBusJavaAPI.scala	/^package akka.event.japi$/;"	p
+Event	target/sbt-ctags-dep-srcs/akka/event/japi/EventBusJavaAPI.scala	/^  type Event = E$/;"	T
+Subscriber	target/sbt-ctags-dep-srcs/akka/event/japi/EventBusJavaAPI.scala	/^  type Subscriber = S$/;"	T
+Classifier	target/sbt-ctags-dep-srcs/akka/event/japi/EventBusJavaAPI.scala	/^  type Classifier = C$/;"	T
+Event	target/sbt-ctags-dep-srcs/akka/event/japi/EventBusJavaAPI.scala	/^  type Event = E$/;"	T
+Subscriber	target/sbt-ctags-dep-srcs/akka/event/japi/EventBusJavaAPI.scala	/^  type Subscriber = S$/;"	T
+Classifier	target/sbt-ctags-dep-srcs/akka/event/japi/EventBusJavaAPI.scala	/^  type Classifier = C$/;"	T
+Event	target/sbt-ctags-dep-srcs/akka/event/japi/EventBusJavaAPI.scala	/^  type Event = E$/;"	T
+Subscriber	target/sbt-ctags-dep-srcs/akka/event/japi/EventBusJavaAPI.scala	/^  type Subscriber = S$/;"	T
+Classifier	target/sbt-ctags-dep-srcs/akka/event/japi/EventBusJavaAPI.scala	/^  type Classifier = C$/;"	T
+akka.event	target/sbt-ctags-dep-srcs/akka/event/Logging.scala	/^package akka.event$/;"	p
+Event	target/sbt-ctags-dep-srcs/akka/event/Logging.scala	/^  type Event >: Logging.LogEvent$/;"	T
+Classifier	target/sbt-ctags-dep-srcs/akka/event/Logging.scala	/^  type Classifier >: Class[_]$/;"	T
+akka.event	target/sbt-ctags-dep-srcs/akka/event/LoggingReceive.scala	/^package akka.event$/;"	p
+akka.event.slf4j	target/sbt-ctags-dep-srcs/akka/event/slf4j/Slf4jEventHandler.scala	/^package akka.event.slf4j$/;"	p
+akka.event.slf4j	target/sbt-ctags-dep-srcs/akka/event/slf4j/Slf4jLogger.scala	/^package akka.event.slf4j$/;"	p
+akka.io	target/sbt-ctags-dep-srcs/akka/io/DirectByteBufferPool.scala	/^package akka.io$/;"	p
+akka.io	target/sbt-ctags-dep-srcs/akka/io/Inet.scala	/^package akka.io$/;"	p
+akka.io	target/sbt-ctags-dep-srcs/akka/io/IO.scala	/^package akka.io$/;"	p
+akka.io	target/sbt-ctags-dep-srcs/akka/io/Pipelines.scala	/^package akka.io$/;"	p
+Result	target/sbt-ctags-dep-srcs/akka/io/Pipelines.scala	/^  type Result = Either[EvtAbove, CmdBelow]$/;"	T
+Mgmt	target/sbt-ctags-dep-srcs/akka/io/Pipelines.scala	/^  type Mgmt = PartialFunction[AnyRef, Iterable[Result]]$/;"	T
+Output	target/sbt-ctags-dep-srcs/akka/io/Pipelines.scala	/^          type Output = Either[EvtAbove, CmdBelowBelow]$/;"	T
+akka.io	target/sbt-ctags-dep-srcs/akka/io/SelectionHandler.scala	/^package akka.io$/;"	p
+akka.io	target/sbt-ctags-dep-srcs/akka/io/SslTlsSupport.scala	/^package akka.io$/;"	p
+akka.io	target/sbt-ctags-dep-srcs/akka/io/Tcp.scala	/^package akka.io$/;"	p
+akka.io	target/sbt-ctags-dep-srcs/akka/io/TcpConnection.scala	/^package akka.io$/;"	p
+akka.io	target/sbt-ctags-dep-srcs/akka/io/TcpIncomingConnection.scala	/^package akka.io$/;"	p
+akka.io	target/sbt-ctags-dep-srcs/akka/io/TcpListener.scala	/^package akka.io$/;"	p
+akka.io	target/sbt-ctags-dep-srcs/akka/io/TcpManager.scala	/^package akka.io$/;"	p
+akka.io	target/sbt-ctags-dep-srcs/akka/io/TcpOutgoingConnection.scala	/^package akka.io$/;"	p
+akka.io	target/sbt-ctags-dep-srcs/akka/io/TcpPipelineHandler.scala	/^package akka.io$/;"	p
+akka.io	target/sbt-ctags-dep-srcs/akka/io/Udp.scala	/^package akka.io$/;"	p
+akka.io	target/sbt-ctags-dep-srcs/akka/io/UdpConnected.scala	/^package akka.io$/;"	p
+akka.io	target/sbt-ctags-dep-srcs/akka/io/UdpConnectedManager.scala	/^package akka.io$/;"	p
+akka.io	target/sbt-ctags-dep-srcs/akka/io/UdpConnection.scala	/^package akka.io$/;"	p
+akka.io	target/sbt-ctags-dep-srcs/akka/io/UdpListener.scala	/^package akka.io$/;"	p
+akka.io	target/sbt-ctags-dep-srcs/akka/io/UdpManager.scala	/^package akka.io$/;"	p
+akka.io	target/sbt-ctags-dep-srcs/akka/io/UdpSender.scala	/^package akka.io$/;"	p
+akka.io	target/sbt-ctags-dep-srcs/akka/io/WithUdpSend.scala	/^package akka.io$/;"	p
+akka.japi	target/sbt-ctags-dep-srcs/akka/japi/JavaAPI.scala	/^package akka.japi$/;"	p
+akka	target/sbt-ctags-dep-srcs/akka/Main.scala	/^package akka$/;"	p
+akka.pattern	target/sbt-ctags-dep-srcs/akka/pattern/AskSupport.scala	/^package akka.pattern$/;"	p
+akka.pattern	target/sbt-ctags-dep-srcs/akka/pattern/CircuitBreaker.scala	/^package akka.pattern$/;"	p
+akka.pattern	target/sbt-ctags-dep-srcs/akka/pattern/FutureTimeoutSupport.scala	/^package akka.pattern$/;"	p
+akka.pattern	target/sbt-ctags-dep-srcs/akka/pattern/GracefulStopSupport.scala	/^package akka.pattern$/;"	p
+akka	target/sbt-ctags-dep-srcs/akka/pattern/package.scala	/^package akka$/;"	p
+object	target/sbt-ctags-dep-srcs/akka/pattern/package.scala	/^package object pattern extends PipeToSupport with AskSupport with GracefulStopSupport with FutureTimeoutSupport {$/;"	p
+akka.pattern	target/sbt-ctags-dep-srcs/akka/pattern/Patterns.scala	/^package akka.pattern$/;"	p
+akka.pattern	target/sbt-ctags-dep-srcs/akka/pattern/PipeToSupport.scala	/^package akka.pattern$/;"	p
+akka.remote	target/sbt-ctags-dep-srcs/akka/remote/AckedDelivery.scala	/^package akka.remote$/;"	p
+akka.remote	target/sbt-ctags-dep-srcs/akka/remote/AddressUidExtension.scala	/^package akka.remote$/;"	p
+akka.remote	target/sbt-ctags-dep-srcs/akka/remote/DefaultFailureDetectorRegistry.scala	/^package akka.remote$/;"	p
+akka.remote	target/sbt-ctags-dep-srcs/akka/remote/Endpoint.scala	/^package akka.remote$/;"	p
+akka.remote	target/sbt-ctags-dep-srcs/akka/remote/FailureDetector.scala	/^package akka.remote$/;"	p
+akka.remote	target/sbt-ctags-dep-srcs/akka/remote/FailureDetectorRegistry.scala	/^package akka.remote$/;"	p
+akka.remote	target/sbt-ctags-dep-srcs/akka/remote/MessageSerializer.scala	/^package akka.remote$/;"	p
+akka.remote	target/sbt-ctags-dep-srcs/akka/remote/PhiAccrualFailureDetector.scala	/^package akka.remote$/;"	p
+akka.remote	target/sbt-ctags-dep-srcs/akka/remote/RemoteActorRefProvider.scala	/^package akka.remote$/;"	p
+akka.remote	target/sbt-ctags-dep-srcs/akka/remote/RemoteDaemon.scala	/^package akka.remote$/;"	p
+akka.remote	target/sbt-ctags-dep-srcs/akka/remote/RemoteDeployer.scala	/^package akka.remote$/;"	p
+akka.remote	target/sbt-ctags-dep-srcs/akka/remote/RemoteDeploymentWatcher.scala	/^package akka.remote$/;"	p
+akka.remote	target/sbt-ctags-dep-srcs/akka/remote/RemoteMetricsExtension.scala	/^package akka.remote$/;"	p
+akka.remote	target/sbt-ctags-dep-srcs/akka/remote/RemoteSettings.scala	/^package akka.remote$/;"	p
+akka.remote	target/sbt-ctags-dep-srcs/akka/remote/RemoteTransport.scala	/^package akka.remote$/;"	p
+akka.remote	target/sbt-ctags-dep-srcs/akka/remote/RemoteWatcher.scala	/^package akka.remote$/;"	p
+akka.remote	target/sbt-ctags-dep-srcs/akka/remote/Remoting.scala	/^package akka.remote$/;"	p
+akka.remote	target/sbt-ctags-dep-srcs/akka/remote/RemotingLifecycleEvent.scala	/^package akka.remote$/;"	p
+akka.remote.routing	target/sbt-ctags-dep-srcs/akka/remote/routing/RemoteRouterConfig.scala	/^package akka.remote.routing$/;"	p
+akka.remote.security.provider	target/sbt-ctags-dep-srcs/akka/remote/security/provider/AES128CounterInetRNG.scala	/^package akka.remote.security.provider$/;"	p
+akka.remote.security.provider	target/sbt-ctags-dep-srcs/akka/remote/security/provider/AES128CounterSecureRNG.scala	/^package akka.remote.security.provider$/;"	p
+akka.remote.security.provider	target/sbt-ctags-dep-srcs/akka/remote/security/provider/AES256CounterInetRNG.scala	/^package akka.remote.security.provider$/;"	p
+akka.remote.security.provider	target/sbt-ctags-dep-srcs/akka/remote/security/provider/AES256CounterSecureRNG.scala	/^package akka.remote.security.provider$/;"	p
+akka.remote.security.provider	target/sbt-ctags-dep-srcs/akka/remote/security/provider/AkkaProvider.scala	/^package akka.remote.security.provider$/;"	p
+akka.remote.security.provider	target/sbt-ctags-dep-srcs/akka/remote/security/provider/InternetSeedGenerator.scala	/^package akka.remote.security.provider$/;"	p
+akka.remote.security.provider	target/sbt-ctags-dep-srcs/akka/remote/security/provider/SeedSize.scala	/^package akka.remote.security.provider$/;"	p
+akka.remote.serialization	target/sbt-ctags-dep-srcs/akka/remote/serialization/DaemonMsgCreateSerializer.scala	/^package akka.remote.serialization$/;"	p
+akka.remote.serialization	target/sbt-ctags-dep-srcs/akka/remote/serialization/MessageContainerSerializer.scala	/^package akka.remote.serialization$/;"	p
+akka.remote.serialization	target/sbt-ctags-dep-srcs/akka/remote/serialization/ProtobufSerializer.scala	/^package akka.remote.serialization$/;"	p
+akka.remote.transport	target/sbt-ctags-dep-srcs/akka/remote/transport/AbstractTransportAdapter.scala	/^package akka.remote.transport$/;"	p
+akka.remote.transport	target/sbt-ctags-dep-srcs/akka/remote/transport/AkkaPduCodec.scala	/^package akka.remote.transport$/;"	p
+akka.remote.transport	target/sbt-ctags-dep-srcs/akka/remote/transport/AkkaProtocolTransport.scala	/^package akka.remote.transport$/;"	p
+akka.remote.transport	target/sbt-ctags-dep-srcs/akka/remote/transport/FailureInjectorTransportAdapter.scala	/^package akka.remote.transport$/;"	p
+akka.remote.transport.netty	target/sbt-ctags-dep-srcs/akka/remote/transport/netty/NettyHelpers.scala	/^package akka.remote.transport.netty$/;"	p
+akka.remote.transport.netty	target/sbt-ctags-dep-srcs/akka/remote/transport/netty/NettySSLSupport.scala	/^package akka.remote.transport.netty$/;"	p
+akka.remote.transport.netty	target/sbt-ctags-dep-srcs/akka/remote/transport/netty/NettyTransport.scala	/^package akka.remote.transport.netty$/;"	p
+akka.remote.transport.netty	target/sbt-ctags-dep-srcs/akka/remote/transport/netty/TcpSupport.scala	/^package akka.remote.transport.netty$/;"	p
+akka.remote.transport.netty	target/sbt-ctags-dep-srcs/akka/remote/transport/netty/UdpSupport.scala	/^package akka.remote.transport.netty$/;"	p
+akka.remote.transport	target/sbt-ctags-dep-srcs/akka/remote/transport/TestTransport.scala	/^package akka.remote.transport$/;"	p
+Behavior	target/sbt-ctags-dep-srcs/akka/remote/transport/TestTransport.scala	/^  type Behavior[A, B] = (A) ⇒ Future[B]$/;"	T
+akka.remote.transport	target/sbt-ctags-dep-srcs/akka/remote/transport/ThrottlerTransportAdapter.scala	/^package akka.remote.transport$/;"	p
+akka.remote.transport	target/sbt-ctags-dep-srcs/akka/remote/transport/Transport.scala	/^package akka.remote.transport$/;"	p
+akka.routing	target/sbt-ctags-dep-srcs/akka/routing/ConsistentHash.scala	/^package akka.routing$/;"	p
+akka.routing	target/sbt-ctags-dep-srcs/akka/routing/ConsistentHashingRouter.scala	/^package akka.routing$/;"	p
+ConsistentHashMapping	target/sbt-ctags-dep-srcs/akka/routing/ConsistentHashingRouter.scala	/^  type ConsistentHashMapping = PartialFunction[Any, Any]$/;"	T
+akka.routing	target/sbt-ctags-dep-srcs/akka/routing/Listeners.scala	/^package akka.routing$/;"	p
+akka.routing	target/sbt-ctags-dep-srcs/akka/routing/MurmurHash.scala	/^package akka.routing$/;"	p
+akka	target/sbt-ctags-dep-srcs/akka/routing/package.scala	/^package akka$/;"	p
+object	target/sbt-ctags-dep-srcs/akka/routing/package.scala	/^package object routing {$/;"	p
+Route	target/sbt-ctags-dep-srcs/akka/routing/package.scala	/^  type Route = PartialFunction[(akka.actor.ActorRef, Any), immutable.Iterable[Destination]]$/;"	T
