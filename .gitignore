@@ -1,6 +1,8 @@
 project/*
 target/*
 tags/*
+tags
+.tags
 
 #Backup file
 *~
