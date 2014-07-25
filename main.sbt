@@ -12,5 +12,9 @@ libraryDependencies += "org.joda" % "joda-convert" % "1.2"
 
 libraryDependencies += "org.scalatest" % "scalatest_2.10" % "2.0" % "test"
 
+scalacOptions in (Compile, doc) ++= Seq("-doc-root-content", baseDirectory.value+"/NOTE.md")
+
+scalacOptions in (Compile, doc) ++= Seq("-doc-title", "CDR Generator")
+
 resolvers += "Akka Repository" at "http://repo.akka.io/release/"
 
