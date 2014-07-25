@@ -7,10 +7,8 @@ class UserSpec extends FlatSpec {
 		new {
 			val dumUser =	new DumUser(
 				1,
-			// Got a problem with the Operator class (says abstract class but it
-			// isn't)
-				DefaultOp, //new Operator(2, "operator 2", 0.6f),
-				new Cell(3, new Location(0.4, 0.6), Array())
+				DefaultOperator,
+				DefaultCell
 					)
 		}
 
