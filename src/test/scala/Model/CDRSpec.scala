@@ -10,7 +10,7 @@ class CDRSpec extends FlatSpec {
 			DefaultCell,
 			DefaultCell,
 			new DateTime(),
-			new DateTime(),
+			100,
 			SMS)
 	}
 
@@ -27,8 +27,8 @@ class CDRSpec extends FlatSpec {
 					case "toCell" => assert( f == cdr.toCell.id.toString )
 					case "fromOperator" => assert( f == cdr.fromUser.operator.name )
 					case "toOperator" => assert( f == cdr.toUser.operator.name )
-					case "duration" => assert( f == cdr.duration.toString("%y%m%d") )
-					case "date" => assert( f == cdr.date.toString("%y%m%d") )
+					case "duration" => assert( f == cdr.duration.toString )
+					case "date" => assert( f == cdr.date.toString("%y%m%d%h%s") )
 					case "type" => assert( f == CDRType.toString(cdr.cdrType))
 					case _ => assert(false)
 				}

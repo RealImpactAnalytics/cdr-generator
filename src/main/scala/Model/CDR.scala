@@ -10,7 +10,7 @@ object CDRType{
 		cdrType match {
 			case SMS => "SMS"
 			case Call => "call"
-			case _ => "unknown"
+		case _ => "unknown"
 		}
 	}
 }
@@ -21,7 +21,7 @@ class CDR(
 	val fromCell: Cell,
 	val toCell: Cell,
 	val date: DateTime,
-	val duration: DateTime,
+	val duration: Int,
 	val cdrType: CDRType
 ) extends Serializable {
 
@@ -56,8 +56,8 @@ class CDR(
 			"toCell" -> toCell.id,
 			"fromOperator" -> fromUser.operator.name,
 			"toOperator" -> toUser.operator.name,
-			"duration" -> duration.toString("%y%m%d"),
-			"date" -> date.toString("%y%m%d"),
+			"duration" -> duration.toString,
+			"date" -> date.toString("%y%m%d%h%s"),
 			"type" -> CDRType.toString(cdrType))
 	}
 }
@@ -70,5 +70,5 @@ object DefaultCDR extends CDR(
 	DefaultCell,
 	DefaultCell,
 	new DateTime(),
-	new DateTime(),
+	100,
 	SMS)

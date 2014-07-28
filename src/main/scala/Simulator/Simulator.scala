@@ -1,6 +1,8 @@
 package simulator
 
 import org.joda.time.DateTime
+import org.joda.time.DateTime._
+import java.util.Random
 import org.apache.spark.graphx._
 
 import generator.cells._
@@ -15,7 +17,11 @@ abstract class Simulator(
 	val usersGenerator: UsersGenerator
 ){
 
-	def simulate(date: DateTime) : org.apache.spark.rdd.RDD[CDR]
+	/** Generate one day of cdr based on the results of the other generator
+	 * @param  day 
+	 * @return     CDRs for the day
+	 */
+	def simulate(day: DateTime) : org.apache.spark.rdd.RDD[CDR]
 
 }
 
@@ -26,35 +32,35 @@ class BasicSimulator(
 	val socialNetworkGenerator: SocialNetworkGenerator
 ){
 
-	def simulate(date: DateTime) : org.apache.spark.rdd.RDD[CDR] = {
+	def simulate(day: DateTime) : org.apache.spark.rdd.RDD[CDR] = {
 		val operators = operatorsGenerator.generate()
 		val cells = cellsGenerator.generate(operators)
 		val users = usersGenerator.generate(cells, operators)
-		val socialNetwork = socialNetworkGenerator.generate(users).cache
-
-		socialNetwork.outDegrees.foreach{
-			case (vId, d) => println(s"$vId out degree : $d")
-		}
+		val socialNetwork = socialNetworkGenerator.generate(users)
 
 		socialNetwork.edges.flatMap{ 
 			case Edge(a, b, Relation(userA, userB))=>
-			Array(new CDR(
-				userA,
-				userB,
-				userA.where(date),
-				userB.where(date),
-				date,
-				new DateTime(0, 1, 26, 12, 0, 0, 0),
-				SMS),
-			new CDR(
-				userA,
-				userB,
-				userA.where(date),
-				userB.where(date),
-				date,
-				new DateTime(0, 1, 26, 12, 0, 0, 0),
-				Call)
-			)
+				val rand = new Random(now.getMillisOfSecond)
+				val date = day.withHourOfDay(rand.nextInt(11)+1).
+				withSecondOfMinute(rand.nextInt(59)+1)
+				val duration = rand.nextInt(1000)
+				Array(new CDR(
+					userA,
+					userB,
+					userA.where(date),
+					userB.where(date),
+					date,
+					duration,
+					SMS),
+				new CDR(
+					userA,
+					userB,
+					userA.where(date),
+					userB.where(date),
+					date,
+					duration,
+					Call)
+				)
 		}
 	}
 
