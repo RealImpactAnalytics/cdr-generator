@@ -25,13 +25,27 @@ class CDR(
 	val cdrType: CDRType
 ) extends Serializable {
 
+	/** CDR fields separate by a "," in the same order has the header
+	 *
+	 * @return  String
+	 */
 	override def toString(): String = this.toString(",")
+
+	/** CDR fields separate by separator in the same order has the header
+	 * @param separator		The separator
+	 * @return  String		The concatenation of the cdr fields
+	 */
 	def toString(separator: String): String ={
 		val tmp = this.toMap().values.mkString(separator)
 		println(tmp)
 		tmp
 	}
 
+	/** Concatenation of the cdr fields that will be return by toString
+	 *
+	 * @param  separator String
+	 * @return           String
+	 */
 	def header(separator: String): String = this.toMap().keys.mkString(separator)
 
 	private def toMap() = {
@@ -46,3 +60,13 @@ class CDR(
 	}
 }
 
+/** Defaulft CDR for testing
+ */
+object DefaultCDR extends CDR(
+	DefaultDumUser,
+	DefaultDumUser,
+	DefaultCell,
+	DefaultCell,
+	new DateTime(),
+	new DateTime(),
+	SMS)

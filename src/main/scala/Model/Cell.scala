@@ -9,3 +9,13 @@ class Cell (
 	val cellsNeighbor: Array[Cell]
 )extends Serializable
 
+
+/** Default Cell for testing
+ */
+object DefaultCell extends Cell(
+	1,
+	new Location(0, 0),
+	DefaultOperator,
+	Array()
+)
+

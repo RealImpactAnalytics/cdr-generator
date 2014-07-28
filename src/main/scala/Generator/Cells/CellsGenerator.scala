@@ -15,8 +15,7 @@ abstract class CellsGenerator(){
 	def generate(operators: Array[Operator]) : Array[Cell]
 }
 
-/**
-	* Generate cell located at random position (x, y)
+/** Generate cell located at random position (x, y)
 	* Where x is in [latMin, latMax] and y is in [lonMin, lonMax]
 	*
 	* @param nCells int, the number of cells to generate
@@ -40,8 +39,9 @@ class BasicCellsGenerator(
 	}
 
 	private def randomLocation() = new Location(
-		latMin + (rand.nextDouble() / (latMax - latMin)),
-		lonMin + (rand.nextDouble() / (lonMax - lonMin)) )
+		latMin + (rand.nextDouble() * (latMax - latMin)),
+		lonMin + (rand.nextDouble() * (lonMax - lonMin))
+	)
 }
 
 

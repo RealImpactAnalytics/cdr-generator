@@ -7,7 +7,7 @@ import org.joda.time.DateTime
  * @param id       The User Id
  * @param operator The user Operator
  */
-abstract class User( val id: Long, var operator : Operator ) extends serializable{
+abstract class User( val id: Long, var operator : Operator ) extends Serializable{
 	
 	/** Check if this user can call the other user at that date for that duration.
 	 *
@@ -50,7 +50,8 @@ abstract class User( val id: Long, var operator : Operator ) extends serializabl
 
 }
 
-class DumUser( id: Long, operator: Operator, cell: Cell ) extends User(id, operator) {
+class DumUser( id: Long, operator: Operator, cell: Cell ) extends User(id, operator) with Serializable {
+	def this() = this(1, DefaultOperator, DefaultCell)
 	
 	override def isPossibleToCall(other : User, date: DateTime, duration: DateTime): Boolean = true
 
@@ -63,3 +64,10 @@ class DumUser( id: Long, operator: Operator, cell: Cell ) extends User(id, opera
 	def where(date: DateTime): Cell = cell
 
 }
+
+/** Default DumUser for testing
+ */
+object DefaultDumUser extends DumUser(
+	1,
+	DefaultOperator,
+	DefaultCell)

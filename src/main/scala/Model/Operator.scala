@@ -6,5 +6,7 @@ class Operator (
 	val share: Float
 	) extends Serializable
 
-object DefaultOp extends Operator(1, "first", 0.1f)
+/** Default operator for testing
+ */
+object DefaultOperator extends Operator(1, "first", 0.1f)
 

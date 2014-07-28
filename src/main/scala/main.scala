@@ -7,6 +7,7 @@ import spark.Spark.sc
 import generator.users._
 import generator.operators._
 import generator.cells._
+import generator.socialnetwork._
 import simulator._
 
 object CDRSimulation{
@@ -14,7 +15,8 @@ object CDRSimulation{
 		val sim = new BasicSimulator(
 			new BasicCellsGenerator(10),
 			new HarcodedOperatorsGenerator(),
-			new BasicUsersGenerator(50)
+			new BasicUsersGenerator(50),
+			new RandomSocialNetworkGenerator()
 		)
 		sim.simulate(new DateTime).map(_.toString).saveAsTextFile("test.txt")
 	}

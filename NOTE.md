@@ -68,6 +68,16 @@ Should be able to answer :
 Should generate a graph from the list of users. The edges could have a weight 
 which represent the "closeness" between the 2 users.
 
+### Graph generation
+One way to do it is :
+Generate temporary id from 1 to numberOfUser and generate a graph with those id
+(can be done easily). Them associate to each users one of those id (**zipWithIndex**). Finally, we
+could join by key the client and the edges generated. So we could have our edges
+from user to user.
+
+To generate a graph of integer there are multiple ways to achieve that. Two of them are already
+implemented in **graphx** (log normal graph and **R-MAT** graph) in the package **org.apache.spark.graphx.util** .
+
 # Randomness
 There are multiple ways to ensure some randomness.
 
@@ -77,25 +87,7 @@ There are multiple ways to ensure some randomness.
     put errors in the data,...
 
 
-# General constants
-Each generator could take specific parameters (map ?).
-
-For example :
-
-- Number of clients
-- Number of cells
-- Number of operators (share ?)
-- Number of days
-- Starting date ?
-- Type of hours, Schedule
-
-    time_types = [ [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23 ],
-      ["h","h","h","h","h","h","h","h","r","w","w","w","r","r", "w", "w","w", "w", "r", "r", "h", "h", "h", "h"]
-
 # Question
-- Scala Test ?
-- Create the class for the user,... in the generators ? Or in a separate Model folder ?
-- How to generate the cells graph ? (bench vs scala)
 - Handle different type of  customers ? Responsibilities of the model or of the 
 	users generator ?
 	- Different pass or one pass with different customer ?
