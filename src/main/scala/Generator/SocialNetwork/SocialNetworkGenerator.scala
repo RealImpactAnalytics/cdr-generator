@@ -89,6 +89,11 @@ class RandomSocialNetworkGenerator extends SocialNetworkGenerator with IntGraphU
 		val intGraph = GraphGenerators.logNormalGraph(sc, users.count.toInt).mapVertices{
 			case (id, v) => v.toLong
 		}
+
+		intGraph.outDegrees.foreach{
+			case (vId, d) => println(s"int graph : $vId out degree : $d")
+		}
+
 		val userGraph = intGraphToElementGraph(users, intGraph)
 		userGraph.mapEdges[Relation]( (partitionId: PartitionID, edgesIterator: Iterator[Edge[(User,User,Int)]]) =>
 				edgesIterator.map{

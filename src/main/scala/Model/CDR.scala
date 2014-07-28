@@ -52,6 +52,8 @@ class CDR(
 		Map(
 			"fromUserId" -> fromUser.id.toString,
 			"toUserId" -> toUser.id.toString,
+			"fromCell" -> fromCell.id,
+			"toCell" -> toCell.id,
 			"fromOperator" -> fromUser.operator.name,
 			"toOperator" -> toUser.operator.name,
 			"duration" -> duration.toString("%y%m%d"),

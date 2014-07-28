@@ -23,6 +23,8 @@ class CDRSpec extends FlatSpec {
 				h match {
 					case "fromUserId" => assert( f == cdr.fromUser.id.toString )
 					case "toUserId" => assert( f == cdr.toUser.id.toString )
+					case "fromCell" => assert( f == cdr.fromCell.id.toString )
+					case "toCell" => assert( f == cdr.toCell.id.toString )
 					case "fromOperator" => assert( f == cdr.fromUser.operator.name )
 					case "toOperator" => assert( f == cdr.toUser.operator.name )
 					case "duration" => assert( f == cdr.duration.toString("%y%m%d") )
@@ -38,6 +40,8 @@ class CDRSpec extends FlatSpec {
 		val fields = Array(
 			"fromUserId", 
 			"toUserId",  
+			"fromCell", 
+			"toCell",  
 			"fromOperator", 
 			"toOperator", 
 			"duration", 
