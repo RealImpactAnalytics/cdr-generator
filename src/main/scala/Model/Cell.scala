@@ -1,6 +1,6 @@
 package model
 
-case class Location(x: Double, y: Double)
+case class Location(lat: Double, lon: Double)
 
 class Cell (
 	val id: Long,

@@ -25,18 +25,19 @@ class CellsGeneratorSpec extends FlatSpec {
 			val latMax = latMin + rand.nextDouble.abs
 			val lonMin = rand.nextDouble.abs
 			val lonMax = lonMin + rand.nextDouble.abs
+			println(s"latMin: $latMin latMax: $latMax lonMin: $lonMin lonMax: $lonMax")
 			val basicCellsGenerator = 
 				new BasicCellsGenerator(50,latMin, latMax, lonMin, lonMax)
 			val cells = basicCellsGenerator.generate(f.operators)
 			cells.foreach{ c =>
-					assert( c.location.x >= latMin,
-						s"x : ${c.location.x} below the min latitude : ${latMin}" )
-					assert( c.location.x <= latMax,
-						s"x : ${c.location.x} over the max latitude : ${latMax}" )
-					assert( c.location.y >= lonMin,
-						s"y : ${c.location.y} below the min longitude : ${lonMin}" )
-					assert( c.location.y <= lonMax,
-						s"y : ${c.location.y} over the max longitude : ${lonMax}" )
+					assert( c.location.lat >= latMin,
+						s"lat : ${c.location.lat} below the min latitude : ${latMin}" )
+					assert( c.location.lat <= latMax,
+						s"lat : ${c.location.lat} over the max latitude : ${latMax}" )
+					assert( c.location.lon >= lonMin,
+						s"lon : ${c.location.lon} below the min longitude : ${lonMin}" )
+					assert( c.location.lon <= lonMax,
+						s"lon : ${c.location.lon} over the max longitude : ${lonMax}" )
 					}
 		}
 	}
