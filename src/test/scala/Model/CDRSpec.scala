@@ -11,7 +11,15 @@ class CDRSpec extends FlatSpec {
 			DefaultCell,
 			new DateTime(),
 			100,
-			SMS)
+			SMS,
+			RingOff,
+			RingOff,
+			10,
+			20,
+			OnNet,
+			TAC.randomTac,
+			TAC.randomTac
+		)
 	}
 
 	"CDR.toString fields" should "be in the same order as the fields return by the header function" in {
@@ -21,16 +29,23 @@ class CDRSpec extends FlatSpec {
 
 		header.zip(fields).foreach{ case (h,f) =>
 				h match {
-					case "fromUserId" => assert( f == cdr.fromUser.id.toString )
-					case "toUserId" => assert( f == cdr.toUser.id.toString )
-					case "fromCell" => assert( f == cdr.fromCell.id.toString )
-					case "toCell" => assert( f == cdr.toCell.id.toString )
-					case "fromOperator" => assert( f == cdr.fromUser.operator.name )
-					case "toOperator" => assert( f == cdr.toUser.operator.name )
-					case "duration" => assert( f == cdr.duration.toString )
-					case "date" => assert( f == cdr.date.toString("%y%m%d%h%s") )
-					case "type" => assert( f == CDRType.toString(cdr.cdrType))
-					case _ => assert(false)
+					case "MSISDN_1" => assert( f == cdr.fromUser.id.toString )
+					case "MSISDN_2" => assert( f == cdr.toUser.id.toString )
+					case "CELL_1" => assert( f == cdr.fromCell.id.toString )
+					case "CELL_2" => assert( f == cdr.toCell.id.toString )
+					case "OPERATOR_1" => assert( f == cdr.fromUser.operator.name )
+					case "OPERATOR_2" => assert( f == cdr.toUser.operator.name )
+					case "DURATION" => assert( f == cdr.duration.toString )
+					case "TIMESTAMP" => assert( f == cdr.date.toString("%y%m%d%h%s") )
+					case "TERMINATION_STATUS_1" => assert( f == TerminationStatus.toString(cdr.fromTerminationStatus) )
+					case "TERMINATION_STATUS_2" => assert( f == TerminationStatus.toString(cdr.toTerminationStatus) )
+					case "VALUE_1" => assert( f == cdr.fromValue.toString )
+					case "VALUE_2" => assert( f == cdr.toValue.toString )
+					case "TYPE" => assert( f == CDRType.toString(cdr.cdrType) )
+					case "TRANSIT_TYPE" => assert( f == TransitType.toString(cdr.transitType) )
+					case "TAC_1" => assert( f == cdr.fromTac )
+					case "TAC_2" => assert( f == cdr.toTac)
+					case s => assert(false, s"The field $s shouldn't be in the header")
 				}
 			}
 	}
@@ -38,17 +53,24 @@ class CDRSpec extends FlatSpec {
 		val cdr = fixture.cdr
 		val headerFields = cdr.header(",").split(",")
 		val fields = Array(
-			"fromUserId", 
-			"toUserId",  
-			"fromCell", 
-			"toCell",  
-			"fromOperator", 
-			"toOperator", 
-			"duration", 
-			"date", 
-			"type"
+			"MSISDN_1",
+			"MSISDN_2",
+			"CELL_1",
+			"CELL_2",
+			"OPERATOR_1",
+			"OPERATOR_2",
+			"DURATION",
+			"TIMESTAMP",
+			"TERMINATION_STATUS_1",
+			"TERMINATION_STATUS_2",
+			"VALUE_1",
+			"VALUE_2",
+			"TYPE",
+			"TRANSIT_TYPE",
+			"TAC_1",
+			"TAC_2"
 			)
-		fields.foreach( f => assert(headerFields.contains(f)) )
+		fields.foreach( f => assert(headerFields.contains(f), s"The header don't have the field $f") )
 	}
 
 }

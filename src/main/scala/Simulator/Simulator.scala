@@ -51,7 +51,15 @@ class BasicSimulator(
 					userB.where(date),
 					date,
 					duration,
-					SMS),
+					SMS,
+					RingOff,
+					RingOff,
+					10,
+					20,
+					OnNet,
+					TAC.randomTac,
+					TAC.randomTac
+					),
 				new CDR(
 					userA,
 					userB,
@@ -59,8 +67,16 @@ class BasicSimulator(
 					userB.where(date),
 					date,
 					duration,
-					Call)
+					Call,
+					RingOff,
+					RingOff,
+					10,
+					20,
+					OnNet,
+					TAC.randomTac,
+					TAC.randomTac
 				)
+			)
 		}
 	}
 
