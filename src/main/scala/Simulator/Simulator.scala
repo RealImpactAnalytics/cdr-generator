@@ -1,7 +1,8 @@
 package simulator
 
-import org.joda.time.DateTime
-import org.joda.time.DateTime._
+import com.github.nscala_time.time.Imports._
+
+
 import java.util.Random
 import org.apache.spark.graphx._
 
@@ -40,7 +41,7 @@ class BasicSimulator(
 
 		socialNetwork.edges.flatMap{ 
 			case Edge(a, b, Relation(userA, userB))=>
-				val rand = new Random(now.getMillisOfSecond)
+				val rand = new Random(DateTime.now.millis.get)
 				val date = day.withHourOfDay(rand.nextInt(11)+1).
 				withSecondOfMinute(rand.nextInt(59)+1)
 				val duration = rand.nextInt(1000)

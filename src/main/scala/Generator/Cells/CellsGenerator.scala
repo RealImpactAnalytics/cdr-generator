@@ -3,8 +3,9 @@ package generator.cells
 import model._
 import scala.util.Random
 import scala.util.Random._
-import org.joda.time.DateTime
-import org.joda.time.DateTime._
+import com.github.nscala_time.time.Imports._
+
+
 
 /** CellsGenerator interface */
 abstract class CellsGenerator(){
@@ -38,7 +39,7 @@ class BasicCellsGenerator(
 	val lonMax: Double = 1,
 	val dropProbability: Double = 0.01
 ) extends CellsGenerator {
-	private val rand = new Random( (new DateTime()).getMillisOfDay() )
+	private val rand = new Random( (DateTime.now).getMillisOfDay() )
 
 	override def generate(operators: Array[Operator]) : Array[Cell] = {
 		val cellsId = 1 to nCells

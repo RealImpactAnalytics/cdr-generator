@@ -1,6 +1,6 @@
 package model
-import org.joda.time.DateTime
-import org.joda.time.DateTime._
+import com.github.nscala_time.time.Imports._
+
 import java.util.Random
 
 abstract class CDRType
@@ -62,7 +62,7 @@ object TransitType{
 }
 
 object TAC{
-	private val rand = new Random(now.getMillisOfSecond) 
+	private val rand = new Random(DateTime.now.millis.get) 
 	val tacMap = Map(
 	"IPhone4" -> "01241700",
 	"Nexus5" -> "35824005"
@@ -162,7 +162,7 @@ object DefaultCDR extends CDR(
 	DefaultDumUser,
 	DefaultCell,
 	DefaultCell,
-	new DateTime(),
+	DateTime.now,
 	100,
 	SMS,
 	RingOff,

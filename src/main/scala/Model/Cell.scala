@@ -2,8 +2,9 @@ package model
 
 import scala.util.Random
 import scala.util.Random._
-import org.joda.time.DateTime
-import org.joda.time.DateTime._
+import com.github.nscala_time.time.Imports._
+
+
 
 case class Location(lat: Double, lon: Double)
 
@@ -17,7 +18,7 @@ class Cell (
 	val cellsNeighbor: Array[Cell],
 	val dropProbability: Double = 0.01
 )extends Serializable {
-	private val rand = new Random( (new DateTime()).getMillisOfDay() )
+	private val rand = new Random( (DateTime.now).getMillisOfDay() )
 
 	/** Compute if the cell willl drop the next call or not
 	 * @return  true if the cell drop the call false otherwise

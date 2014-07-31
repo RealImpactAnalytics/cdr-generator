@@ -1,7 +1,7 @@
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkContext._
 import org.apache.spark.SparkConf
-import org.joda.time.DateTime
+import com.github.nscala_time.time.Imports._
 
 import spark.Spark.sc
 import generator.users._

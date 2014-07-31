@@ -1,7 +1,8 @@
 package generator.socialnetwork
 
 import scala.util.Random
-import org.joda.time.DateTime
+import com.github.nscala_time.time.Imports._
+
 import org.apache.spark._
 import org.apache.spark.graphx._
 import org.apache.spark.graphx.util._
