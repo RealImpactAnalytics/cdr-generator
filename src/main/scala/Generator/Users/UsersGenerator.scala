@@ -3,7 +3,7 @@ package generator.users
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkContext._
 import org.apache.spark.SparkConf
-import java.util.Random
+import scala.util.Random
 
 import model._
 import spark.Spark.sc
@@ -29,7 +29,7 @@ class BasicUsersGenerator(nUsers: Int) extends UsersGenerator {
 	}
 
 	def sampleCells(cells: Array[Cell]): Array[Cell] = {
-		val rand = new Random(System.currentTimeMillis());
+		val rand = new Random
 		val size = rand.nextInt(cells.length);
 		val set = Set( 0 to size map{_ =>
 				cells(rand.nextInt(cells.length))

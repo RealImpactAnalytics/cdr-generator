@@ -18,7 +18,7 @@ class Cell (
 	val cellsNeighbor: Array[Cell],
 	val dropProbability: Double = 0.01
 )extends Serializable {
-	private val rand = new Random( (DateTime.now).getMillisOfDay() )
+	private val rand = new Random
 
 	/** Compute if the cell willl drop the next call or not
 	 * @return  true if the cell drop the call false otherwise

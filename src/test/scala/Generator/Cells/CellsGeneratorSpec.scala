@@ -18,7 +18,7 @@ class CellsGeneratorSpec extends FlatSpec {
 	}
 	it should "generate cells in the given boundaries" in {
 		val f = fixture
-		val rand = new Random( (new DateTime()).getMillisOfDay() )
+		val rand = new Random
 		val nCells = 10
 		1 to 10 foreach{_ =>
 			val latMin = rand.nextDouble.abs

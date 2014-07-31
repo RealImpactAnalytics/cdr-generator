@@ -3,7 +3,7 @@ package simulator
 import com.github.nscala_time.time.Imports._
 
 
-import java.util.Random
+import scala.util.Random
 import org.apache.spark.graphx._
 
 import generator.cells._
@@ -32,6 +32,7 @@ class BasicSimulator(
 	val usersGenerator: UsersGenerator,
 	val socialNetworkGenerator: SocialNetworkGenerator
 ){
+	private val rand = new Random
 
 	def simulate(day: DateTime) : org.apache.spark.rdd.RDD[CDR] = {
 		val operators = operatorsGenerator.generate()
@@ -41,44 +42,38 @@ class BasicSimulator(
 
 		socialNetwork.edges.flatMap{ 
 			case Edge(a, b, Relation(userA, userB))=>
-				val rand = new Random(DateTime.now.millis.get)
-				val date = day.withHourOfDay(rand.nextInt(11)+1).
-				withSecondOfMinute(rand.nextInt(59)+1)
-				val duration = rand.nextInt(1000)
-				Array(new CDR(
-					userA,
-					userB,
-					userA.where(date),
-					userB.where(date),
-					date,
-					duration,
-					SMS,
-					RingOff,
-					RingOff,
-					10,
-					20,
-					OnNet,
-					TAC.randomTac,
-					TAC.randomTac
-					),
-				new CDR(
-					userA,
-					userB,
-					userA.where(date),
-					userB.where(date),
-					date,
-					duration,
-					Call,
-					RingOff,
-					RingOff,
-					10,
-					20,
-					OnNet,
-					TAC.randomTac,
-					TAC.randomTac
+				val numberOfCDR = rand.nextInt(10)
+				(0 to numberOfCDR).map(_ =>
+					randomCDR(userA, userB, day)
 				)
-			)
 		}
+	}
+
+	def randomCDR(userA: User, userB: User, day: DateTime): CDR = {
+		val date = day.hour(rand.nextInt(11)+1).
+		withSecondOfMinute(rand.nextInt(59)+1)
+		val duration = rand.nextInt(1000)
+		val costA = rand.nextDouble * 10
+		val costB = rand.nextDouble * 10
+		val cdrType = if(rand.nextDouble < 0.5) SMS else Call
+		val terminationStatusA = if(rand.nextDouble < 0.95) RingOff else Drop
+		val terminationStatusB = if(rand.nextDouble < 0.95) RingOff else Drop
+		new CDR(
+			userA,
+			userB,
+			userA.where(date),
+			userB.where(date),
+			date,
+			duration,
+			cdrType,
+			terminationStatusA,
+			terminationStatusB,
+			costA,
+			costB,
+			TransitType.randomTransitType,
+			TAC.randomTac,
+			TAC.randomTac
+		)
 	}
 
 }

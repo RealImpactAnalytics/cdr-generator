@@ -39,7 +39,7 @@ class BasicCellsGenerator(
 	val lonMax: Double = 1,
 	val dropProbability: Double = 0.01
 ) extends CellsGenerator {
-	private val rand = new Random( (DateTime.now).getMillisOfDay() )
+	private val rand = new Random
 
 	override def generate(operators: Array[Operator]) : Array[Cell] = {
 		val cellsId = 1 to nCells

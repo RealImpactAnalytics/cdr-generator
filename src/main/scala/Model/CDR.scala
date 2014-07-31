@@ -1,7 +1,7 @@
 package model
 import com.github.nscala_time.time.Imports._
 
-import java.util.Random
+import scala.util.Random
 
 abstract class CDRType
 object SMS extends CDRType
@@ -49,6 +49,7 @@ object CallCenter extends TransitType
 object Special extends TransitType
 
 object TransitType{
+	private val rand = new Random
 	def toString(transitType: TransitType): String ={
 		transitType match {
 			case OnNet => "ONNET"
@@ -59,10 +60,15 @@ object TransitType{
 			case _ => "UNKNOWN"
 		}
 	}
+
+	def randomTransitType: TransitType = {
+		val values = Array( OnNet, OffNet, International, CallCenter, Special)
+		values( rand.nextInt(values.size) )
+	}
 }
 
 object TAC{
-	private val rand = new Random(DateTime.now.millis.get) 
+	private val rand = new Random 
 	val tacMap = Map(
 	"IPhone4" -> "01241700",
 	"Nexus5" -> "35824005"
@@ -71,9 +77,8 @@ object TAC{
 	/** Return a random TAC
 	 */
 	def randomTac : String = {
-		val value = tacMap.values.toArray
-		val pos = rand.nextInt.abs % value.size
-		value(pos)
+		val values = tacMap.values.toArray
+		values( rand.nextInt(tacMap.size) )
 	}
 }
 

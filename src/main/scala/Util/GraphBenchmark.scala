@@ -1,7 +1,7 @@
 package util.graph
 
 import math._
-import java.util.Random
+import scala.util.Random
 import org.apache.spark.graphx._
 
 case class Node(val id: Int, val degree: Int)
