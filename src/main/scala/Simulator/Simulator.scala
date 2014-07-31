@@ -56,13 +56,15 @@ class BasicSimulator(
 		val costA = rand.nextDouble * 10
 		val costB = rand.nextDouble * 10
 		val cdrType = if(rand.nextDouble < 0.5) SMS else Call
-		val terminationStatusA = if(rand.nextDouble < 0.95) RingOff else Drop
-		val terminationStatusB = if(rand.nextDouble < 0.95) RingOff else Drop
+		val cellA = userA.where(date)
+		val cellB = userA.where(date)
+		val terminationStatusA = if(cellA.drop(rand)) RingOff else Drop
+		val terminationStatusB = if(cellB.drop(rand)) RingOff else Drop
 		new CDR(
 			userA,
 			userB,
-			userA.where(date),
-			userB.where(date),
+			cellA,
+			cellB,
 			date,
 			duration,
 			cdrType,
