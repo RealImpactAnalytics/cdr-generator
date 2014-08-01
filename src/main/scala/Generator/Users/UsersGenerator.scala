@@ -8,7 +8,7 @@ import java.util.Random
 import model._
 import spark.Spark.sc
 
-abstract class UsersGenerator(){
+abstract class UsersGenerator() extends Serializable{
 	def generate(
 		cells: Array[Cell],
 		operators: Array[Operator] 

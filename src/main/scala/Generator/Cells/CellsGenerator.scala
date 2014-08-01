@@ -8,7 +8,7 @@ import com.github.nscala_time.time.Imports._
 
 
 /** CellsGenerator interface */
-abstract class CellsGenerator(){
+abstract class CellsGenerator() extends Serializable{
 	/**
 	  * Generate an array of cells
 		* @return an array of cells

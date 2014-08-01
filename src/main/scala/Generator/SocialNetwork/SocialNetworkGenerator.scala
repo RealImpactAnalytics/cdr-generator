@@ -16,7 +16,7 @@ import spark.Spark.sc
 /** Can generate a social network
  *  A social network is a graph of User linked by a Relation
  */
-abstract class SocialNetworkGenerator {
+abstract class SocialNetworkGenerator extends Serializable{
 
 	/** Generate a graph with the users as node
 	 * @param  users The node for the graph
