@@ -62,7 +62,7 @@ object TransitType{
 	}
 
 	def randomTransitType: TransitType = {
-		val values = Array( OnNet, OffNet, International, CallCenter, Special)
+		val values = Array( OnNet, OffNet, International)//, CallCenter, Special)
 		values( rand.nextInt(values.size) )
 	}
 }

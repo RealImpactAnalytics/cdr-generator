@@ -46,8 +46,16 @@ class BasicSimulator(
 					randomCDR(userA, userB, day)
 				)
 		}
-		println(s"number of cdr : ${cdrs.count}")
-		cdrs
+		val nCdr = cdrs.count
+
+		val central = new DumUser( -1, operators(0), cells(0) )
+		val centralCdrs = users.sample(false, rand.nextDouble).flatMap{ u =>
+				val nOfCentralCDR = rand.nextInt(3)
+				(0 to nOfCentralCDR).map(_ => 
+						randomCentralCDR(u, central, day)
+						)
+		}
+		cdrs ++ centralCdrs
 	}
 
 	def randomCDR(userA: User, userB: User, day: DateTime): CDR = {
@@ -55,8 +63,6 @@ class BasicSimulator(
 		withSecondOfMinute(rand.nextInt(59)+1)
 		val cdrType = if(rand.nextDouble < 0.5) SMS else Call
 		val duration = if(cdrType == SMS) 0 else rand.nextInt(1000)
-		val costA = rand.nextDouble * 10
-		val costB = rand.nextDouble * 10
 		val cellA = userA.where(date)
 		val cellB = userA.where(date)
 		val terminationStatusA = if(cellA.drop) RingOff else Drop
@@ -80,6 +86,32 @@ class BasicSimulator(
 		)
 	}
 
+	def randomCentralCDR(user: User, central: User, day: DateTime): CDR = {
+		val date = day.hour(rand.nextInt(11)+1).
+		withSecondOfMinute(rand.nextInt(59)+1)
+		val cellA = central.where(date)
+		val cellB = user.where(date)
+		val terminationStatusA = if(cellA.drop) RingOff else Drop
+		val terminationStatusB = if(cellB.drop) RingOff else Drop
+		new CDR(
+			central,
+			user,
+			cellA,
+			cellB,
+			date,
+			0,
+			SMS,
+			terminationStatusA,
+			terminationStatusB,
+			0,
+			0,
+			CallCenter,
+			central.tac(date),
+			user.tac(date)
+			
+		)
+	}
 }
+
 
 
