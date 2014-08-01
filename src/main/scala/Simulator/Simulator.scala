@@ -2,7 +2,6 @@ package simulator
 
 import com.github.nscala_time.time.Imports._
 
-
 import scala.util.Random
 import org.apache.spark.graphx._
 
@@ -31,7 +30,7 @@ class BasicSimulator(
 	val operatorsGenerator: OperatorsGenerator,
 	val usersGenerator: UsersGenerator,
 	val socialNetworkGenerator: SocialNetworkGenerator
-){
+)extends Serializable{
 	private val rand = new Random
 
 	def simulate(day: DateTime) : org.apache.spark.rdd.RDD[CDR] = {
@@ -52,10 +51,10 @@ class BasicSimulator(
 	def randomCDR(userA: User, userB: User, day: DateTime): CDR = {
 		val date = day.hour(rand.nextInt(11)+1).
 		withSecondOfMinute(rand.nextInt(59)+1)
-		val duration = rand.nextInt(1000)
+		val cdrType = if(rand.nextDouble < 0.5) SMS else Call
+		val duration = if(cdrType == SMS) 0 else rand.nextInt(1000)
 		val costA = rand.nextDouble * 10
 		val costB = rand.nextDouble * 10
-		val cdrType = if(rand.nextDouble < 0.5) SMS else Call
 		val cellA = userA.where(date)
 		val cellB = userA.where(date)
 		val terminationStatusA = if(cellA.drop(rand)) RingOff else Drop
@@ -70,11 +69,12 @@ class BasicSimulator(
 			cdrType,
 			terminationStatusA,
 			terminationStatusB,
-			costA,
-			costB,
+			userA.callerCost(userB, date, duration, cdrType),
+			userB.callerCost(userA, date, duration, cdrType),
 			TransitType.randomTransitType,
-			TAC.randomTac,
-			TAC.randomTac
+			userA.tac(date),
+			userB.tac(date)
+			
 		)
 	}
 

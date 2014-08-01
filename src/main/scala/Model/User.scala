@@ -1,6 +1,7 @@
 package model
 
 import com.github.nscala_time.time.Imports._
+import scala.util.Random
 
 
 /** Represent an User
@@ -8,7 +9,7 @@ import com.github.nscala_time.time.Imports._
  * @param id       The User Id
  * @param operator The user Operator
  */
-abstract class User( val id: Long, var operator : Operator ) extends Serializable{
+abstract class User( val id: Long, var operator : Operator) extends Serializable{
 	
 	/** Check if this user can call the other user at that date for that duration.
 	 *
@@ -49,6 +50,31 @@ abstract class User( val id: Long, var operator : Operator ) extends Serializabl
 	 */
 	def where(date: DateTime): Cell
 
+	/** Compute the tac number of the device the user used at that date
+	 * @return  TAC		The tac number of the device used by the user
+	 */
+	def tac(date: DateTime): String
+
+	/** Compute the cost for this user to call/SMS (cdrType) the user to at that
+	 * date for that duration.
+	 * @param  to       The user this user call/SMS
+	 * @param  date     The date of the call/SMS
+	 * @param  duration The duration of the call/SMS
+	 * @param  CDRType	The type of the cdr => if it's a call or a SMS
+	 * @return          The cost
+	 */
+	def callerCost(to: User, date: DateTime, duration: Int, cdrType: CDRType): Double
+
+	/** Compute the cost for this user to recieve a call/SMS (cdrType) from the
+	 * user from at that date for that duration.
+	 * @param  from     The user who call/SMS this user
+	 * @param  date     The date of the call/SMS
+	 * @param  duration The duration of the call/SMS
+	 * @param  CDRType	The type of the cdr => if it's a call or a SMS
+	 * @return          The cost
+	 */
+	def recieverCost(from: User, date: DateTime, duration: Int, cdrType: CDRType): Double
+
 }
 
 class DumUser( id: Long, operator: Operator, cell: Cell ) extends User(id, operator) with Serializable {
@@ -62,8 +88,17 @@ class DumUser( id: Long, operator: Operator, cell: Cell ) extends User(id, opera
 
 	override def probabilityToSMS(date : DateTime): Double = 1.0
 
-	def where(date: DateTime): Cell = cell
+	override def where(date: DateTime): Cell = cell
 
+	override def tac(date: DateTime): String = TAC.randomTac
+
+	override def callerCost(to: User, date: DateTime, duration: Int, cdrType: CDRType): Double = {
+		10 //Random.nextDouble * 10
+	}
+
+	override def recieverCost(from: User, date: DateTime, duration: Int, cdrType: CDRType): Double = {
+		10 //if( Random.nextDouble < 0.9 ) Random.nextDouble else 0.0
+	}
 }
 
 /** Default DumUser for testing
