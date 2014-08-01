@@ -1,6 +1,6 @@
 package generator.socialnetwork
 
-import scala.util.Random
+import java.util.Random
 import com.github.nscala_time.time.Imports._
 
 import org.apache.spark._

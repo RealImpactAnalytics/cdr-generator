@@ -1,6 +1,6 @@
 package model
 
-import scala.util.Random
+import java.util.Random
 import scala.util.Random._
 import com.github.nscala_time.time.Imports._
 
@@ -18,11 +18,11 @@ class Cell (
 	val cellsNeighbor: Array[Cell],
 	val dropProbability: Double = 0.01
 )extends Serializable {
-
+	protected val rand = new Random
 	/** Compute if the cell will drop the next call or not
 	 * @return  true if the cell drop the call false otherwise
 	 */
-	def drop(rand: Random) : Boolean = rand.nextDouble <= dropProbability 
+	def drop() : Boolean = rand.nextDouble <= dropProbability 
 }
 
 

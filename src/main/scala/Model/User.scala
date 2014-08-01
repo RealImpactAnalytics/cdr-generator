@@ -1,7 +1,7 @@
 package model
 
 import com.github.nscala_time.time.Imports._
-import scala.util.Random
+import java.util.Random
 
 
 /** Represent an User
@@ -78,6 +78,8 @@ abstract class User( val id: Long, var operator : Operator) extends Serializable
 }
 
 class DumUser( id: Long, operator: Operator, cell: Cell ) extends User(id, operator) with Serializable {
+	protected val rand = new Random
+
 	def this() = this(1, DefaultOperator, DefaultCell)
 	
 	override def isPossibleToCall(other : User, date: DateTime, duration: DateTime): Boolean = true
@@ -93,11 +95,11 @@ class DumUser( id: Long, operator: Operator, cell: Cell ) extends User(id, opera
 	override def tac(date: DateTime): String = TAC.randomTac
 
 	override def callerCost(to: User, date: DateTime, duration: Int, cdrType: CDRType): Double = {
-		10 //Random.nextDouble * 10
+		rand.nextDouble * 10
 	}
 
 	override def recieverCost(from: User, date: DateTime, duration: Int, cdrType: CDRType): Double = {
-		10 //if( Random.nextDouble < 0.9 ) Random.nextDouble else 0.0
+		if( rand.nextDouble < 0.9 ) rand.nextDouble else 0.0
 	}
 }
 

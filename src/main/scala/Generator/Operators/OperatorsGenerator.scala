@@ -2,7 +2,7 @@ package generator.operators
 
 import model._
 
-abstract class OperatorsGenerator(){
+abstract class OperatorsGenerator() extends Serializable{
 	def generate(): Array[Operator]
 }
 

@@ -3,7 +3,7 @@ package generator.users
 import org.apache.spark.SparkContext
 import org.apache.spark.SparkContext._
 import org.apache.spark.SparkConf
-import scala.util.Random
+import java.util.Random
 
 import model._
 import spark.Spark.sc
@@ -16,6 +16,7 @@ abstract class UsersGenerator(){
 }
 
 class BasicUsersGenerator(nUsers: Int) extends UsersGenerator {
+	protected val rand = new Random
 
 	override def generate(
 		cells: Array[Cell],
@@ -29,7 +30,6 @@ class BasicUsersGenerator(nUsers: Int) extends UsersGenerator {
 	}
 
 	def sampleCells(cells: Array[Cell]): Array[Cell] = {
-		val rand = new Random
 		val size = rand.nextInt(cells.length);
 		val set = Set( 0 to size map{_ =>
 				cells(rand.nextInt(cells.length))

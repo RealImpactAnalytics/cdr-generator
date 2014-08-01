@@ -2,7 +2,7 @@ package simulator
 
 import com.github.nscala_time.time.Imports._
 
-import scala.util.Random
+import java.util.Random
 import org.apache.spark.graphx._
 
 import generator.cells._
@@ -31,7 +31,7 @@ class BasicSimulator(
 	val usersGenerator: UsersGenerator,
 	val socialNetworkGenerator: SocialNetworkGenerator
 )extends Serializable{
-	private val rand = new Random
+	protected val rand = new Random
 
 	def simulate(day: DateTime) : org.apache.spark.rdd.RDD[CDR] = {
 		val operators = operatorsGenerator.generate()
@@ -39,13 +39,15 @@ class BasicSimulator(
 		val users = usersGenerator.generate(cells, operators)
 		val socialNetwork = socialNetworkGenerator.generate(users)
 
-		socialNetwork.edges.flatMap{ 
+		val cdrs = socialNetwork.edges.flatMap{ 
 			case Edge(a, b, Relation(userA, userB))=>
 				val numberOfCDR = rand.nextInt(10)
 				(0 to numberOfCDR).map(_ =>
 					randomCDR(userA, userB, day)
 				)
 		}
+		println(s"number of cdr : ${cdrs.count}")
+		cdrs
 	}
 
 	def randomCDR(userA: User, userB: User, day: DateTime): CDR = {
@@ -57,8 +59,8 @@ class BasicSimulator(
 		val costB = rand.nextDouble * 10
 		val cellA = userA.where(date)
 		val cellB = userA.where(date)
-		val terminationStatusA = if(cellA.drop(rand)) RingOff else Drop
-		val terminationStatusB = if(cellB.drop(rand)) RingOff else Drop
+		val terminationStatusA = if(cellA.drop) RingOff else Drop
+		val terminationStatusB = if(cellB.drop) RingOff else Drop
 		new CDR(
 			userA,
 			userB,
