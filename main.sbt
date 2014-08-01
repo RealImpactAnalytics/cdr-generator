@@ -8,6 +8,8 @@ libraryDependencies += "org.apache.spark" %% "spark-core" % "1.0.0"
 
 libraryDependencies += "org.apache.spark" %% "spark-graphx" % "1.0.0"
 
+libraryDependencies += "com.github.nscala-time" %% "nscala-time" % "1.2.0"
+
 libraryDependencies += "joda-time" % "joda-time" % "2.3"
 
 libraryDependencies += "org.joda" % "joda-convert" % "1.2"
